@@ -1,6 +1,6 @@
 
 val settings = Seq(
-  organization := "com.lihaoyi",
+  organization := "de.sandec",
   version := upicklePPrint.Constants.version,
 
   scalaVersion := "2.12.0",
@@ -11,8 +11,12 @@ val settings = Seq(
     "-encoding", "utf8",
     "-feature"),
   // Sonatype
-  publishArtifact in Test := false,
-  publishTo := Some("releases"  at "https://oss.sonatype.org/service/local/staging/deploy/maven2"),
+  
+  bintrayOmitLicense := true,
+  bintrayRepository := "repo",
+  bintrayOrganization := Some("sandec"),
+  //publishArtifact in Test := false,
+  //publishTo := Some("releases"  at "https://oss.sonatype.org/service/local/staging/deploy/maven2"),
   
   testFrameworks += new TestFramework("utest.runner.Framework"),
   libraryDependencies ++= Seq(
